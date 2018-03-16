@@ -2,6 +2,7 @@ import 'babel-polyfill';
 import 'file-saver';
 import 'lodash';
 import 'jquery';
+import 'vendor/jquery-ui-dist/jquery-ui.min.js';
 import 'angular';
 import 'angular-route';
 import 'angular-sanitize';

@@ -10,12 +10,12 @@ export function setupAngularRoutes($routeProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 
   $routeProvider
-    .when('/', {
-      templateUrl: 'public/app/partials/dashboard.html',
-      controller: 'LoadDashboardCtrl',
-      reloadOnSearch: false,
-      pageClass: 'page-dashboard',
-    })
+    // .when('/', {
+    //   templateUrl: 'public/app/partials/dashboard.html',
+    //   controller: 'LoadDashboardCtrl',
+    //   reloadOnSearch: false,
+    //   pageClass: 'page-dashboard',
+    // })
     .when('/d/:uid/:slug', {
       templateUrl: 'public/app/partials/dashboard.html',
       controller: 'LoadDashboardCtrl',
@@ -267,6 +267,16 @@ export function setupAngularRoutes($routeProvider, $locationProvider) {
     .when('/alerting/notification/:id/edit', {
       templateUrl: 'public/app/features/alerting/partials/notification_edit.html',
       controller: 'AlertNotificationEditCtrl',
+      controllerAs: 'ctrl',
+    })
+    .when('/', {
+      templateUrl: 'public/app/features/syndashboard/partials/syndashboard.html',
+      controller: 'SynDashboardCtrl',
+      controllerAs: 'ctrl',
+    })
+    .when('/createbucket', {
+      templateUrl: 'public/app/features/createbucket/partials/createbucket.html',
+      controller: 'CreateBucketCtrl',
       controllerAs: 'ctrl',
     })
     .otherwise({

@@ -1,0 +1,1 @@
+import './syndashboard_ctrl';

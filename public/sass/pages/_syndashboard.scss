@@ -1,0 +1,94 @@
+.syndashboard-container {
+  max-width: 100% !important;
+  background-color: #141414;
+  .progress-step::after {
+    border-top: 2px solid #256e37 !important;
+  }
+  [draggable] {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+  }
+  .tracker-container {
+    margin: 20px auto;
+  }
+  .progress-step {
+    img {
+      width: 50px;
+    }
+  }
+  .drag-drop-container {
+    margin-top: 10px;
+    .row {
+      margin-left: 0px !important;
+      margin-right: 0px !important;
+    }
+    .col-sm-6:first-child {
+      padding-left: 0px;
+      padding-right: 5px;
+    }
+    .col-sm-6:last-child {
+      padding-right: 0px;
+      padding-left: 5px;
+    }
+    .panel-container {
+      .panel-title {
+        font-size: 20px;
+        text-align: center;
+        margin: 10px 0px;
+      }
+      .scroll-container {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        .items-container {
+          margin-bottom: 15px;
+          height: 160px;
+          .item-container {
+            display: inline-block;
+            width: 120px;
+            height: 100px;
+            text-align: center;
+            vertical-align: top;
+            position: relative;
+            img {
+              width: 100px;
+            }
+            .image {
+              height: 100px;
+              background-size: contain;
+              background-repeat: no-repeat;
+              margin: auto;
+              width: 100px;
+            }
+            .crm {
+              background-image: url('/public/img/apps/1.png');
+            }
+            .hsms {
+              background-image: url('/public/img/apps/2.png');
+            }
+            .htms {
+              background-image: url('/public/img/apps/3.png');
+            }
+            .ec {
+              background-image: url('/public/img/apps/4.png');
+            }
+            .sd {
+              background-image: url('/public/img/apps/5.png');
+            }
+            i {
+              font-size: 98px;
+            }
+            .item-title {
+              margin: 5px 0px;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}

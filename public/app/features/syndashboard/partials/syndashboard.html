@@ -1,8 +1,8 @@
 <navbar model="ctrl.navModel"></navbar>
 <div class="syndashboard-container page-container">
-    <div class="panel-container">
+    <div class="panel-container" id="create-bucket-container">
         <ul class="progress-tracker tracker-container">
-            <li class="progress-step">
+            <li id="create-bucket" class="progress-step">
                 <a class="progress-link" href="/createbucket">
                     <span class="progress-marker">
                         <img src="public/img/buckets/empty.png" />
@@ -24,10 +24,10 @@
             </li>
         </ul>
     </div>
-    <div class="drag-drop-container">
+    <div class="drag-drop-container" id="drag-drop-container">
         <div class="row">
             <div class="col-sm-6">
-                <div class="panel-container">
+                <div id="bucket-container" class="panel-container">
                     <div class="panel-title">
                         Buckets
                     </div>
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="panel-container">
+                <div id="app-container" class="panel-container">
                     <div class="panel-title">
                         Drop Application
                     </div>

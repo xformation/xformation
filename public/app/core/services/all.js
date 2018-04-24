@@ -8,6 +8,7 @@ define([
   './segment_srv',
   './backend_srv',
   './dynamic_directive_srv',
-  './bridge_srv'
+  './bridge_srv',
+  './help_srv'
 ],
 function () {});

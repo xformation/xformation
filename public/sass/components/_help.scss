@@ -1,0 +1,54 @@
+.help-body {
+  position: absolute;
+  z-index: 10000;
+  background: #3e404f;
+  width: 300px;
+  text-align: center;
+  .help-text {
+    font-size: 14px;
+    color: white;
+    margin: 10px;
+  }
+  button {
+    margin: 10px;
+  }
+  .arrow {
+    i {
+      font-size: 25px;
+      position: absolute;
+      top: -15px;
+      color: #3e404f;
+    }
+  }
+  button {
+    background: transparent;
+    border: none;
+    i {
+      position: relative;
+      font-size: 18px;
+    }
+  }
+  .prev-tooltip,
+  .next-tooltip {
+    i {
+      color: #269242;
+    }
+    &:hover {
+      i {
+        color: #299c46 !important;
+      }
+    }
+  }
+  .close-tooltip {
+    background: transparent;
+    border: none;
+    i {
+      color: #ca4333;
+    }
+    &:hover {
+      i {
+        color: #d44a3a !important;
+      }
+    }
+  }
+}

@@ -7,12 +7,41 @@ export class SynDashboardCtrl {
   navModel: any;
   bucketWidth: string;
   applicationWidth: string;
-  constructor(navModelSrv, private $scope: any, private alertSrv) {
+  helpService: any;
+  helpObj: any;
+  constructor(navModelSrv, private $scope: any, private alertSrv, helpSrv, $timeout, $rootScope) {
     this.navModel = navModelSrv.getNav('dashboards', 0);
     this.applicationList = this.getApplicationList();
     this.bucketList = this.getBucketList();
     this.bucketWidth = this.bucketList.length * 120 + 22 + 'px';
     this.applicationWidth = this.applicationList.length * 120 + 22 + 'px';
+
+    this.helpService = helpSrv;
+    this.helpObj = helpSrv.getCurrentHelpObj();
+    let that = this;
+    $rootScope.$on('show-help', function(other, data) {
+      that.helpObj = data;
+      that.setPositionOfTooltip(data);
+    });
+
+    $timeout(function() {
+      that.setPositionOfTooltip(that.helpObj);
+    });
+  }
+
+  setPositionOfTooltip(data) {
+    if (data) {
+      let $container = $(data.id);
+      if ($container.length === 0) {
+        return;
+      }
+      let parentLeft = $('.main-view').offset().left;
+      let parentTop = $('.main-view').offset().top;
+      let left = $container.offset().left - parentLeft + $container.width() / 2 - $('.help-body').width() / 2;
+      let top = $container.offset().top - parentTop + $container.height();
+      this.helpObj.left = left;
+      this.helpObj.top = top + 12;
+    }
   }
 
   getApplicationList() {

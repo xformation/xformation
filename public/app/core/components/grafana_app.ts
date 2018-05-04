@@ -11,18 +11,7 @@ import colors from 'app/core/utils/colors';
 
 export class GrafanaCtrl {
   /** @ngInject */
-  constructor(
-    $scope,
-    alertSrv,
-    utilSrv,
-    $rootScope,
-    $controller,
-    contextSrv,
-    bridgeSrv,
-    backendSrv,
-    helpSrv,
-    $timeout
-  ) {
+  constructor($scope, alertSrv, utilSrv, $rootScope, $controller, contextSrv, bridgeSrv, backendSrv) {
     createStore(backendSrv);
 
     $scope.init = function() {
@@ -36,8 +25,6 @@ export class GrafanaCtrl {
       bridgeSrv.init();
 
       $scope.dashAlerts = alertSrv;
-      $scope.helpService = helpSrv;
-      $scope.helpObj = helpSrv.getCurrentHelpObj();
     };
 
     $rootScope.colors = colors;
@@ -63,26 +50,7 @@ export class GrafanaCtrl {
       $rootScope.$emit(name, payload);
       appEvents.emit(name, payload);
     };
-
-    $rootScope.$on('show-help', function(other, data) {
-      $scope.helpObj = data;
-      setPositionOfTooltip($scope, data);
-    });
-
-    $timeout(function() {
-      setPositionOfTooltip($scope, $scope.helpObj);
-    });
     $scope.init();
-  }
-}
-
-function setPositionOfTooltip($scope, data) {
-  if (data) {
-    let $container = $(data.id);
-    let left = $container.offset().left + $container.width() / 2 - $('.help-body').width() / 2;
-    let top = $container.offset().top + $container.height();
-    $scope.helpObj.left = left;
-    $scope.helpObj.top = top + 12;
   }
 }
 

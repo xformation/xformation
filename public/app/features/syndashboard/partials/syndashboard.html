@@ -1,62 +1,79 @@
 <navbar model="ctrl.navModel"></navbar>
+<div class="help-body" ng-show="ctrl.helpService.showHelp" ng-style="{'top': ctrl.helpObj.top,'left':ctrl.helpObj.left}">
+  <div class="arrow">
+    <i class="fa fa-caret-up"></i>
+  </div>
+  <div class="help-text">{{ctrl.helpObj.text}}</div>
+  <div>
+    <button ng-show="!ctrl.helpObj.isFirst" class="pull-left prev-tooltip" ng-click="ctrl.helpService.showPrevTip()">
+      <i class="fa fa-chevron-left"></i>
+    </button>
+    <button ng-show="!ctrl.helpObj.isLast" class="pull-right next-tooltip" ng-click="ctrl.helpService.showNextTip()">
+      <i class="fa fa-chevron-right"></i>
+    </button>
+    <button ng-show="ctrl.helpObj.isLast" class="pull-right close-tooltip" ng-click="ctrl.helpService.closeTooltip()">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+</div>
 <div class="syndashboard-container page-container">
-    <div class="panel-container" id="create-bucket-container">
-        <ul class="progress-tracker tracker-container">
-            <li id="create-bucket" class="progress-step">
-                <a class="progress-link" href="/createbucket">
-                    <span class="progress-marker">
-                        <img src="public/img/buckets/empty.png" />
-                    </span>
-                    <span class="progress-text">
-                        Create Bucket
-                    </span>
-                </a>
-            </li>
-            <li class="progress-step">
-                <a class="progress-link">
-                        <span class="progress-marker">
-                            <i class="icon-gf icon-gf-apps"></i>
-                        </span>
-                        <span class="progress-text">
-                            Application
-                        </span>
-                    </a>
-            </li>
-        </ul>
-    </div>
-    <div class="drag-drop-container" id="drag-drop-container">
-        <div class="row">
-            <div class="col-sm-6">
-                <div id="bucket-container" class="panel-container">
-                    <div class="panel-title">
-                        Buckets
-                    </div>
-                    <div class="scroll-container">
-                        <div class="items-container" ng-style="{'width':ctrl.bucketWidth}">
-                            <div class="item-container" ng-repeat="item in ctrl.bucketList" bucket-id="{{$index}}" bucket-name="{{item.name}}" droppable
-                                drop="ctrl.handleDrop(app,bucket)">
-                                <img src="{{item.class}}" />
-                                <div class="item-title">{{item.name}}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <div class="panel-container" id="create-bucket-container">
+    <ul class="progress-tracker tracker-container">
+      <li id="create-bucket" class="progress-step">
+        <a class="progress-link" href="/createbucket">
+          <span class="progress-marker">
+            <img src="public/img/buckets/empty.png" />
+          </span>
+          <span class="progress-text">
+            Create Bucket
+          </span>
+        </a>
+      </li>
+      <li class="progress-step">
+        <a class="progress-link">
+          <span class="progress-marker">
+            <i class="icon-gf icon-gf-apps"></i>
+          </span>
+          <span class="progress-text">
+            Application
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="drag-drop-container" id="drag-drop-container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div id="bucket-container" class="panel-container">
+          <div class="panel-title">
+            Buckets
+          </div>
+          <div class="scroll-container">
+            <div class="items-container" ng-style="{'width':ctrl.bucketWidth}">
+              <div class="item-container" ng-repeat="item in ctrl.bucketList" bucket-id="{{$index}}" bucket-name="{{item.name}}" droppable
+                drop="ctrl.handleDrop(app,bucket)">
+                <img src="{{item.class}}" />
+                <div class="item-title">{{item.name}}</div>
+              </div>
             </div>
-            <div class="col-sm-6">
-                <div id="app-container" class="panel-container">
-                    <div class="panel-title">
-                        Drop Application
-                    </div>
-                    <div class="scroll-container">
-                        <div class="items-container" ng-style="{'width':ctrl.applicationWidth}">
-                            <div ng-repeat="item in ctrl.applicationList" class="item-container" app-name="{{item.name}}" draggable>
-                                <div class="image {{item.className}}"></div>
-                                <div class="item-title">{{item.name}}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+      <div class="col-sm-6">
+        <div id="app-container" class="panel-container">
+          <div class="panel-title">
+            Drop Application
+          </div>
+          <div class="scroll-container">
+            <div class="items-container" ng-style="{'width':ctrl.applicationWidth}">
+              <div ng-repeat="item in ctrl.applicationList" class="item-container" app-name="{{item.name}}" draggable>
+                <div class="image {{item.className}}"></div>
+                <div class="item-title">{{item.name}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

@@ -59,6 +59,8 @@ export class SideMenuCtrl {
         templateHtml: '<help-modal></help-modal>',
       });
       evt.preventDefault();
+    } else if (item.url === '/logout') {
+      sessionStorage.removeItem('is-help-shown');
     }
   }
 }

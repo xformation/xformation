@@ -274,9 +274,9 @@ func createPackage(options linuxPackageOptions) {
 
 	args := []string{
 		"-s", "dir",
-		"--description", "Grafana",
+		"--description", "Xformation Platform",
 		"-C", packageRoot,
-		"--vendor", "Grafana",
+		"--vendor", "synectiks",
 		"--url", "https://xformation.com",
 		"--license", "\"Apache 2.0\"",
 		"--maintainer", "contact@xformation.com",

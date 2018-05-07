@@ -1,13 +1,13 @@
 {
   "author": {
-    "name": "Torkel Ödegaard",
-    "company": "Grafana Labs"
+    "name": "Papu Bhattacharya",
+    "company": "synectiks"
   },
-  "name": "grafana",
-  "version": "5.0.1-pre1",
+  "name": "synectiks",
+  "version": "0.0.7",
   "repository": {
     "type": "git",
-    "url": "http://github.com/grafana/grafana.git"
+    "url": "http://github.com/xformation/xformation.git"
   },
   "devDependencies": {
     "@types/d3": "^4.10.1",

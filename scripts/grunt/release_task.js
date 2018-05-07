@@ -9,8 +9,7 @@ module.exports = function(grunt) {
     'clean:build',
     'phantomjs',
     'exec:webpack',
-    'build-post-process',
-    'compress:release'
+    'build-post-process'
   ]);
 
   grunt.registerTask('build-post-process', function() {

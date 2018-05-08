@@ -5,11 +5,11 @@ module.exports = function(grunt) {
 
   // build, then zip and upload to s3
   grunt.registerTask('release', [
-    'clean:release',
-    'clean:build',
+    'build',
     'phantomjs',
-    'exec:webpack',
-    'build-post-process'
+    'webpack:dev',
+    'build-post-process',
+    'compress:release'
   ]);
 
   grunt.registerTask('build-post-process', function() {
@@ -35,8 +35,8 @@ module.exports = function(grunt) {
 
     grunt.task.run('copy:public_to_temp');
     grunt.task.run('copy:backend_bin');
-   // grunt.task.run('copy:backend_files');
-   // grunt.task.run('clean:packaging');
+    grunt.task.run('copy:backend_files');
+    grunt.task.run('clean:packaging');
 
     grunt.file.write(path.join(grunt.config('tempDir'), 'VERSION'), grunt.config('pkg.version'));
   });

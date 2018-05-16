@@ -284,6 +284,33 @@ func setIndexViewData(c *middleware.Context) (*dtos.IndexViewData, error) {
 	}
 
 	data.NavTree = append(data.NavTree, &dtos.NavLink{
+		Text: "Operation",
+		Id:   "operation",
+		Icon: "fa fa-building",
+		Url:  setting.AppSubUrl + "/operation/monitoring",
+		Children: []*dtos.NavLink{
+			{Text: "Monitoring", Icon: "fa fa-eye", Url: setting.AppSubUrl + "/operation/monitoring"},
+			{Text: "Billing", Id: "billing", Icon: "fa fa-file-text-o", Url: setting.AppSubUrl + "/operation/billing"},
+			{Text: "Compliance", Id: "compliance", Icon: "fa fa-list-alt", Url: setting.AppSubUrl + "/operation/compliance"},
+			{Text: "Delivery", Id: "delivery", Icon: "fa fa-truck", Url: setting.AppSubUrl + "/operation/delivery"},
+			{Text: "Service Quality", Id: "servicequality", Icon: "fa fa-trophy", Url: setting.AppSubUrl + "/operation/servicequality"},
+		},
+	})
+
+	data.NavTree = append(data.NavTree, &dtos.NavLink{
+		Text: "ALM",
+		Id:   "alm",
+		Icon: "fa fa-wrench",
+		Url:  setting.AppSubUrl + "/alm/projectmanagement",
+		Children: []*dtos.NavLink{
+			{Text: "Project Management", Icon: "fa fa-cubes", Url: setting.AppSubUrl + "/alm/projectmanagement"},
+			{Text: "Product Management", Id: "productmanagement", Icon: "fa fa-cube", Url: setting.AppSubUrl + "/alm/productmanagement"},
+			{Text: "Test Management", Id: "testmanagement", Icon: "fa fa-list-alt", Url: setting.AppSubUrl + "/alm/testmanagement"},
+			{Text: "Review Management", Id: "reviewmanagement", Icon: "fa fa-truck", Url: setting.AppSubUrl + "/alm/reviewmanagement"},
+		},
+	})
+
+	data.NavTree = append(data.NavTree, &dtos.NavLink{
 		Text:         "Help",
 		Id:           "help",
 		Url:          "#",

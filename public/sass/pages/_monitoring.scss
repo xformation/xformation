@@ -1,0 +1,15 @@
+.monitoring-container {
+  max-width: 100% !important;
+  .dashboard-link-container {
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+    .dashboard-link {
+      display: block;
+      .dashobard-image {
+        display: block;
+        width: 300px;
+      }
+    }
+  }
+}

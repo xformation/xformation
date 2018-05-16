@@ -279,6 +279,11 @@ export function setupAngularRoutes($routeProvider, $locationProvider) {
       controller: 'CreateBucketCtrl',
       controllerAs: 'ctrl',
     })
+    .when('/operation/monitoring', {
+      templateUrl: 'public/app/features/monitoring/partials/monitoring.html',
+      controller: 'MonitoringCtrl',
+      controllerAs: 'ctrl',
+    })
     .otherwise({
       templateUrl: 'public/app/partials/error.html',
       controller: 'ErrorCtrl',

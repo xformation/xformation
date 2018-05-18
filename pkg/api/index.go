@@ -142,22 +142,6 @@ func setIndexViewData(c *middleware.Context) (*dtos.IndexViewData, error) {
 		data.NavTree = append(data.NavTree, profileNode)
 	}
 
-	if setting.AlertingEnabled && (c.OrgRole == m.ROLE_ADMIN || c.OrgRole == m.ROLE_EDITOR) {
-		alertChildNavs := []*dtos.NavLink{
-			{Text: "Alert Rules", Id: "alert-list", Url: setting.AppSubUrl + "/alerting/list", Icon: "gicon gicon-alert-rules"},
-			{Text: "Notification channels", Id: "channels", Url: setting.AppSubUrl + "/alerting/notifications", Icon: "gicon gicon-alert-notification-channel"},
-		}
-
-		data.NavTree = append(data.NavTree, &dtos.NavLink{
-			Text:     "Alerting",
-			SubTitle: "Alert rules & notifications",
-			Id:       "alerting",
-			Icon:     "gicon gicon-alert",
-			Url:      setting.AppSubUrl + "/alerting/list",
-			Children: alertChildNavs,
-		})
-	}
-
 	enabledPlugins, err := plugins.GetEnabledPlugins(c.OrgId)
 	if err != nil {
 		return nil, err
@@ -213,6 +197,13 @@ func setIndexViewData(c *middleware.Context) (*dtos.IndexViewData, error) {
 			Icon:     "gicon gicon-cog",
 			Url:      setting.AppSubUrl + "/datasources",
 			Children: []*dtos.NavLink{
+				{
+					Text:        "Clouds",
+					Icon:        "gicon gicon-datasources",
+					Description: "Add and configure clouds",
+					Id:          "clouds",
+					Url:         setting.AppSubUrl + "/clouds",
+				},
 				{
 					Text:        "Data Sources",
 					Icon:        "gicon gicon-datasources",
@@ -291,9 +282,12 @@ func setIndexViewData(c *middleware.Context) (*dtos.IndexViewData, error) {
 		Children: []*dtos.NavLink{
 			{Text: "Monitoring", Icon: "fa fa-eye", Url: setting.AppSubUrl + "/operation/monitoring"},
 			{Text: "Billing", Id: "billing", Icon: "fa fa-file-text-o", Url: setting.AppSubUrl + "/operation/billing"},
-			{Text: "Compliance", Id: "compliance", Icon: "fa fa-list-alt", Url: setting.AppSubUrl + "/operation/compliance"},
-			{Text: "Delivery", Id: "delivery", Icon: "fa fa-truck", Url: setting.AppSubUrl + "/operation/delivery"},
+			{Text: "Continous Compliance", Id: "compliance", Icon: "fa fa-list-alt", Url: setting.AppSubUrl + "/operation/compliance"},
+			{Text: "Continous Security", Id: "security", Icon: "fa fa-list-alt", Url: setting.AppSubUrl + "/operation/security"},
+			{Text: "Continous Delivery", Id: "delivery", Icon: "fa fa-truck", Url: setting.AppSubUrl + "/operation/delivery"},
 			{Text: "Service Quality", Id: "servicequality", Icon: "fa fa-trophy", Url: setting.AppSubUrl + "/operation/servicequality"},
+			{Text: "Log Central", Id: "logcentral", Icon: "fa fa-trophy", Url: setting.AppSubUrl + "/operation/logcentral"},
+			{Text: "Continous Automation", Id: "automations", Icon: "fa fa-trophy", Url: setting.AppSubUrl + "/operation/automation"},
 		},
 	})
 
@@ -307,8 +301,25 @@ func setIndexViewData(c *middleware.Context) (*dtos.IndexViewData, error) {
 			{Text: "Product Management", Id: "productmanagement", Icon: "fa fa-cube", Url: setting.AppSubUrl + "/alm/productmanagement"},
 			{Text: "Test Management", Id: "testmanagement", Icon: "fa fa-list-alt", Url: setting.AppSubUrl + "/alm/testmanagement"},
 			{Text: "Review Management", Id: "reviewmanagement", Icon: "fa fa-truck", Url: setting.AppSubUrl + "/alm/reviewmanagement"},
+			{Text: "Budget Management", Id: "budgetmanagement", Icon: "fa fa-truck", Url: setting.AppSubUrl + "/alm/budgetmanagement"},
 		},
 	})
+
+	if setting.AlertingEnabled && (c.OrgRole == m.ROLE_ADMIN || c.OrgRole == m.ROLE_EDITOR) {
+		alertChildNavs := []*dtos.NavLink{
+			{Text: "Alert Rules", Id: "alert-list", Url: setting.AppSubUrl + "/alerting/list", Icon: "gicon gicon-alert-rules"},
+			{Text: "Notification channels", Id: "channels", Url: setting.AppSubUrl + "/alerting/notifications", Icon: "gicon gicon-alert-notification-channel"},
+		}
+
+		data.NavTree = append(data.NavTree, &dtos.NavLink{
+			Text:     "Alerting",
+			SubTitle: "Alert rules & notifications",
+			Id:       "alerting",
+			Icon:     "gicon gicon-alert",
+			Url:      setting.AppSubUrl + "/alerting/list",
+			Children: alertChildNavs,
+		})
+	}
 
 	data.NavTree = append(data.NavTree, &dtos.NavLink{
 		Text:         "Help",

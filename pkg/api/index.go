@@ -280,7 +280,7 @@ func setIndexViewData(c *middleware.Context) (*dtos.IndexViewData, error) {
 		Icon: "fa fa-building",
 		Url:  setting.AppSubUrl + "/operation/monitoring",
 		Children: []*dtos.NavLink{
-			{Text: "Monitoring", Icon: "fa fa-eye", Url: setting.AppSubUrl + "/operation/monitoring"},
+			{Text: "Monitoring", Id: "monitoring", Icon: "fa fa-eye", Url: setting.AppSubUrl + "/operation/monitoring"},
 			{Text: "Billing", Id: "billing", Icon: "fa fa-file-text-o", Url: setting.AppSubUrl + "/operation/billing"},
 			{Text: "Continous Compliance", Id: "compliance", Icon: "fa fa-list-alt", Url: setting.AppSubUrl + "/operation/compliance"},
 			{Text: "Continous Security", Id: "security", Icon: "fa fa-list-alt", Url: setting.AppSubUrl + "/operation/security"},

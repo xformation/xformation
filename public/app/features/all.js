@@ -13,5 +13,6 @@ define([
   './alerting/all',
   './styleguide/styleguide',
   './syndashboard/all',
-  './createbucket/all'
+  './createbucket/all',
+  './monitoring/all'
 ], function () {});

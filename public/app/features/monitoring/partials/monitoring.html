@@ -1,41 +1,14 @@
 <navbar model="ctrl.navModel"></navbar>
 <div class="monitoring-container page-container">
   <div class="panel-container">
-    <div class="dashboard-link-container">
-      <a class="dashboard-link" href="/dashboard/new?orgId=1">
+    <div class="dashboard-link-container" ng-repeat="dashboard in ctrl.sections">
+      <a class="dashboard-link" href="{{dashboard.url}}">
         <img class="dashobard-image" src="public/img/dashboard.png">
-        <span class="dashboard-name">Dashboard-1</span>
+        <span class="dashboard-name">{{dashboard.title}}</span>
       </a>
     </div>
-    <div class="dashboard-link-container">
-      <a class="dashboard-link" href="/dashboard/new?orgId=1">
-        <img class="dashobard-image" src="public/img/dashboard.png">
-        <span class="dashboard-name">Dashboard-1</span>
-      </a>
-    </div>
-    <div class="dashboard-link-container">
-      <a class="dashboard-link" href="/dashboard/new?orgId=1">
-        <img class="dashobard-image" src="public/img/dashboard.png">
-        <span class="dashboard-name">Dashboard-1</span>
-      </a>
-    </div>
-    <div class="dashboard-link-container">
-      <a class="dashboard-link" href="/dashboard/new?orgId=1">
-        <img class="dashobard-image" src="public/img/dashboard.png">
-        <span class="dashboard-name">Dashboard-1</span>
-      </a>
-    </div>
-    <div class="dashboard-link-container">
-      <a class="dashboard-link" href="/dashboard/new?orgId=1">
-        <img class="dashobard-image" src="public/img/dashboard.png">
-        <span class="dashboard-name">Dashboard-1</span>
-      </a>
-    </div>
-    <div class="dashboard-link-container">
-      <a class="dashboard-link" href="/dashboard/new?orgId=1">
-        <img class="dashobard-image" src="public/img/dashboard.png">
-        <span class="dashboard-name">Dashboard-1</span>
-      </a>
+    <div ng-if="ctrl.sections.length === 0">
+      There are no dashboards linked yet.
     </div>
   </div>
 </div>
